@@ -27,18 +27,19 @@ export default function SearchCity() {
 
     return (
         <div>
-            <nav>
+            <nav className="w-full flex justify-center">
                 <input
+                    className="w-60 p-4 text-xl text-gray-950 rounded-lg shadow-inner"
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    placeholder="Enter city"
+                    placeholder="Entre la ciudad"
                     onKeyDown={(e) => {
                         if (e.key === 'Enter') modalCity()
                     }
                     }
                 />
-                <button onClick={modalCity}>Search</button>
+                <button className="w-32 bg-teal-800 text-xl rounded-lg p-4 ml-4 border-2" onClick={modalCity}>BUSCAR</button>
             </nav>
             {modal && (
                 <div className="modal w-full flex justify-center align-middle" onClick={() => setModal(false)}>
@@ -55,7 +56,9 @@ export default function SearchCity() {
                     </div>
                 </div>
             )}
-            <RenderWeather coord={coord} />
+            <div className="w-3/4 flex justify-center text-2xl mt-12">
+                <RenderWeather coord={coord} />
+            </div>
         </div>
 
     )

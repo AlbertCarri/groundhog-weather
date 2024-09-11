@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+background-image: url('/groundhog.jpg');
+color:azure;
+}
+
 .modal {
   position: fixed;
   top: 0;
