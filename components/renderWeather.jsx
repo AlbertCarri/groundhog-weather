@@ -13,7 +13,7 @@ export default function RenderWeather({ coord }) {
         async function weather() {
             const data = await getWeather(coord)
             const time = new Date(((data.dt + 10800) + data.timezone) * 1000)
-            console.log('Latitud , Longitud::::::::', data.dt, time, 'json:::', data)
+            console.log('ICON::::::::', data.weather)
             setTimeHere(time.toLocaleString('es'))
             setWeatherData(data)
             fetch('/countries.json')
@@ -33,10 +33,17 @@ export default function RenderWeather({ coord }) {
     if (loading) return <h1>Loading............</h1>
 
     return (
-        <div>
-            <h1>Ciudad : {weatherData.name}</h1>
-            <h2>Hora actual : {timeHere.substring(10, 19)} Fecha: {timeHere.substring(0, 9)}</h2>
-            <h2>Pais : {country}</h2>
+        <div className="w-1/3 flex flex-col mx-auto mt-8 justify-center rounded-xl">
+            <div className=" bg-slate-800 py-4 px-4 text-center">
+                <p className="text-xl mb-2 uppercase">{weatherData.name} , {country}</p>
+                <p className="text-2xl">Hora: {timeHere.substring(10, 19)}<span className="ml-40"> Fecha: {timeHere.substring(0, 9)}</span></p>
+            </div>
+            <div className="w-full relative">
+                <img className="w-full resize-x absolute" src={`/Groundhog/${weatherData.weather[0].icon}.jpg`} alt="icono" />
+                <p className="absolute text-6xl mt-4 ml-4 drop-shadow">{((weatherData.main.temp) - 273.15).toFixed(1)} C</p>
+                <p className="absolute text-2xl mt-24 ml-4 drop-shadow">Presión : {(weatherData.main.pressure).toFixed(1)}mb</p>
+                <p className="absolute text-2xl mt-32 ml-4 drop-shadow">Humedad : {(weatherData.main.humidity).toFixed(1)}%</p>
+            </div>
         </div>
     )
 }

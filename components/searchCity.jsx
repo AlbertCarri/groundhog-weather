@@ -3,6 +3,7 @@
 import { getCitys } from "@/utils/getCitys"
 import { useState } from "react"
 import RenderWeather from "./renderWeather"
+import { countries } from "@/utils/countries"
 
 export default function SearchCity() {
 
@@ -27,7 +28,7 @@ export default function SearchCity() {
 
     return (
         <div>
-            <nav className="w-full flex justify-center">
+            <nav className="w-full flex justify-center mt-4">
                 <input
                     className="w-60 p-4 text-xl text-gray-950 rounded-lg shadow-inner"
                     type="text"
@@ -39,24 +40,24 @@ export default function SearchCity() {
                     }
                     }
                 />
-                <button className="w-32 bg-teal-800 text-xl rounded-lg p-4 ml-4 border-2" onClick={modalCity}>BUSCAR</button>
+                <button className="btn-buscar p-4 ml-4" onClick={modalCity}>BUSCAR</button>
             </nav>
             {modal && (
-                <div className="modal w-full flex justify-center align-middle" onClick={() => setModal(false)}>
-                    <div className="modal-container w-1/4 flex flex-col">
+                <div className="modal w-full flex justify-center" onClick={() => setModal(false)}>
+                    <div className="modal-container flex flex-col">
                         {[...Array(citys.length).keys()].map(i => (
-                            <button className="bg-slate-900 text-slate-300 border rounded-xl p-4"
+                            <button className="btn-city p-4 mx-auto mb-4"
                                 key={i}
                                 type="text"
                                 onClick={() => searchLatLon(citys[i].lat, citys[i].lon)}>
-                                {citys[i].name}/{citys[i].country}
+                                {citys[i].name} , {countries[citys[i].country]}{citys[i].state ? ' , ' : ' '}{citys[i].state}
                             </button>
                         ))}
 
                     </div>
                 </div>
             )}
-            <div className="w-3/4 flex justify-center text-2xl mt-12">
+            <div>
                 <RenderWeather coord={coord} />
             </div>
         </div>
