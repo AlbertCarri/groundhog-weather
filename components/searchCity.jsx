@@ -43,10 +43,10 @@ export default function SearchCity() {
                 <button className="btn-buscar p-4 ml-4" onClick={modalCity}>BUSCAR</button>
             </nav>
             {modal && (
-                <div className="modal w-full flex justify-center" onClick={() => setModal(false)}>
-                    <div className="modal-container flex flex-col">
+                <div className="modal w-full flex lg:justify-center z-10" onClick={() => setModal(false)}>
+                    <div className="modal-container flex flex-col lg:p-12 lg:w-2/5 z-20 my-auto mx-auto">
                         {[...Array(citys.length).keys()].map(i => (
-                            <button className="btn-city p-4 mx-auto mb-4"
+                            <button className="btn-city lg:p-4 py-4 mx-auto lg:mb-4 mb-2 lg:w-[400px] w-[360px]"
                                 key={i}
                                 type="text"
                                 onClick={() => searchLatLon(citys[i].lat, citys[i].lon)}>
