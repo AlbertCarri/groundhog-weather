@@ -104,8 +104,8 @@ export default function RenderWeather({ coord }) {
                     forecast.list.map(forecastData => (
                         <div key={forecastData.lenght} className="flex flex-row h-24 snap-start items-center border-b-2 border-gray-800">
                             <div className="w-36 text-center">
-                                <p className="text-sm">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(11, 12) === '0' ? 'Fecha :' + (unixToTime(forecastData.dt, weatherData.timezone)).substring(0, 9) : ''}</p>
-                                <p className="lg:text-2xl text-xl ">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(11, 19)}</p>
+                                <p className="text-sm">Fecha: {(unixToTime(forecastData.dt, weatherData.timezone)).substring(0, 9)}</p>
+                                <p className="lg:text-2xl text-xl ">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(10, 19)}</p>
                             </div>
                             <div className="lg:-mt-2 mt-0">
                                 {/* eslint-disable @next/next/no-img-element */}
