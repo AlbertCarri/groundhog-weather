@@ -17,7 +17,7 @@ export default function RenderWeather({ coord }) {
         if (x >= 40 && x <= 59) return 'Nordeste'
         if (x >= 60 && x <= 79) return 'Este/Nordeste'
         if (x >= 80 && x <= 109) return 'Este'
-        if (x >= 110 && x <= 129) return 'Eeste/Sudeste'
+        if (x >= 110 && x <= 129) return 'Este/Sudeste'
         if (x >= 130 && x <= 149) return 'Sudeste'
         if (x >= 150 && x <= 169) return 'Sur/Sudeste'
         if (x >= 170 && x <= 199) return 'Sur'
