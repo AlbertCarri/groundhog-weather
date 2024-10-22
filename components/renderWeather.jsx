@@ -78,22 +78,22 @@ export default function RenderWeather({ coord }) {
         <div className="lg:w-4/5 w-full lg:max-h-[680px] flex lg:flex-row flex-col lg:mx-auto mx-auto mt-8 ">
             <div className="lg:w-2/5 w-full flex-col mx-auto justify-center rounded-xl">
                 <div className=" bg-slate-800 py-4 px-4 text-center">
-                    <p className="lg:text-xl text-md mb-2 uppercase">{weatherData.name} , {country}</p>
-                    <p className="lg:text-2xl text-lg">Hora: {timeHere.substring(10, 19)}<span className="lg:ml-40 ml-8"> Fecha: {timeHere.substring(0, 9)}</span></p>
+                    <p className="lg:text-xl text-md mb-2 uppercase">{weatherData.name}, {country}</p>
+                    <p className="lg:text-2xl text-lg">Hora: {timeHere.substring(11, 19)}<span className="lg:ml-40 ml-8"> Fecha: {timeHere.substring(0, 9)}</span></p>
                 </div>
                 <div className="w-full relative">
                     {/* eslint-disable @next/next/no-img-element */}
                     <img className="w-full resize-x absolute" src={`/Groundhog/${weatherData.weather[0].icon}.jpg`} alt="icono" />
                     <img className="absolute w-16 h-16 lg:mt-4 mt-2 lg:ml-4 ml-2" src={`/Iconos Clima/${weatherData.weather[0].icon}.png`} alt="icono" />
                     <p className="absolute lg:text-6xl text-2xl mt-4 ml-24 drop-shadow">{((weatherData.main.temp) - 273.15).toFixed(1)}ºC</p>
-                    <p className="absolute lg:text-2xl text-sm lg:mt-24 mt-16 ml-4 drop-shadow">Presión : {(weatherData.main.pressure).toFixed(1)}mb</p>
-                    <p className="absolute lg:text-2xl text-sm lg:mt-32 mt-20 ml-4 drop-shadow">Humedad : {(weatherData.main.humidity).toFixed(1)}%</p>
-                    <p className="absolute lg:text-2xl text-sm lg:mt-40 mt-24 ml-4 drop-shadow">Visibilidad : {(weatherData.visibility) / 1000}Km</p>
-                    <p className="absolute lg:text-2xl text-sm lg:mt-48 mt-28 ml-4 drop-shadow">Viento : {Math.floor((weatherData.wind.speed) * 3.6)}Km/h</p>
-                    <p className="absolute lg:text-2xl text-sm lg:mt-56 mt-32 ml-4 drop-shadow">Dirección : {WindDirection(weatherData.wind.deg)}</p>
+                    <p className="absolute lg:text-2xl text-sm lg:mt-24 mt-16 ml-4 drop-shadow">Presión: {(weatherData.main.pressure).toFixed(1)}mb</p>
+                    <p className="absolute lg:text-2xl text-sm lg:mt-32 mt-20 ml-4 drop-shadow">Humedad: {(weatherData.main.humidity).toFixed(1)}%</p>
+                    <p className="absolute lg:text-2xl text-sm lg:mt-40 mt-24 ml-4 drop-shadow">Visibilidad: {(weatherData.visibility) / 1000}Km</p>
+                    <p className="absolute lg:text-2xl text-sm lg:mt-48 mt-28 ml-4 drop-shadow">Viento: {Math.floor((weatherData.wind.speed) * 3.6)}Km/h</p>
+                    <p className="absolute lg:text-2xl text-sm lg:mt-56 mt-32 ml-4 drop-shadow">Dirección: {WindDirection(weatherData.wind.deg)}</p>
                     <div className="absolute right-4 top-2 drop-shadow">
-                        <p className="lg:text-2xl text-sm mt-2">Amanece : {(unixToTime(weatherData.sys.sunrise, weatherData.timezone)).substring(10, 19)}Hs</p>
-                        <p className="lg:text-2xl text-sm lg:mt-2 mt-0">Atardece : {(unixToTime(weatherData.sys.sunset, weatherData.timezone)).substring(10, 19)}Hs</p>
+                        <p className="lg:text-2xl text-sm mt-2">Amanece: {(unixToTime(weatherData.sys.sunrise, weatherData.timezone)).substring(11, 19)}Hs</p>
+                        <p className="lg:text-2xl text-sm lg:mt-2 mt-0">Atardece: {(unixToTime(weatherData.sys.sunset, weatherData.timezone)).substring(11, 19)}Hs</p>
                         <p className="lg:text-2xl text-sm">{(weatherData.rain) ? 'Lluvias : ' + weatherData.rain['1h'] + 'mm/h' : ''}</p>
                         <p className="lg:text-2xl text-sm">{(weatherData.snow) ? 'Nevadas : ' + weatherData.snow['1h'] + 'mm/h' : ''}</p>
                     </div>
@@ -105,7 +105,7 @@ export default function RenderWeather({ coord }) {
                         <div key={forecastData.lenght} className="flex flex-row h-24 snap-start items-center border-b-2 border-gray-800">
                             <div className="w-36 text-center">
                                 <p className="text-sm">Fecha: {(unixToTime(forecastData.dt, weatherData.timezone)).substring(0, 9)}</p>
-                                <p className="lg:text-2xl text-xl ">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(10, 19)}</p>
+                                <p className="lg:text-2xl text-xl ">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(11, 19)}</p>
                             </div>
                             <div className="lg:-mt-2 mt-0">
                                 {/* eslint-disable @next/next/no-img-element */}
