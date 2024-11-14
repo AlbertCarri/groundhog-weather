@@ -92,8 +92,8 @@ export default function RenderWeather({ coord }) {
                     <p className="absolute lg:text-2xl text-sm lg:mt-48 mt-28 ml-4 drop-shadow">Viento: {Math.floor((weatherData.wind.speed) * 3.6)}Km/h</p>
                     <p className="absolute lg:text-2xl text-sm lg:mt-56 mt-32 ml-4 drop-shadow">Dirección: {WindDirection(weatherData.wind.deg)}</p>
                     <div className="absolute right-4 top-2 drop-shadow">
-                        <p className="lg:text-2xl text-sm mt-2">Amanece: {(unixToTime(weatherData.sys.sunrise, weatherData.timezone)).substring(11, 19)}Hs</p>
-                        <p className="lg:text-2xl text-sm lg:mt-2 mt-0">Atardece: {(unixToTime(weatherData.sys.sunset, weatherData.timezone)).substring(11, 19)}Hs</p>
+                        <p className="lg:text-2xl text-sm mt-2">Amanece: {(unixToTime(weatherData.sys.sunrise, weatherData.timezone)).substring(11, 20)}Hs</p>
+                        <p className="lg:text-2xl text-sm lg:mt-2 mt-0">Atardece: {(unixToTime(weatherData.sys.sunset, weatherData.timezone)).substring(11, 20)}Hs</p>
                         <p className="lg:text-2xl text-sm">{(weatherData.rain) ? 'Lluvias : ' + weatherData.rain['1h'] + 'mm/h' : ''}</p>
                         <p className="lg:text-2xl text-sm">{(weatherData.snow) ? 'Nevadas : ' + weatherData.snow['1h'] + 'mm/h' : ''}</p>
                     </div>
