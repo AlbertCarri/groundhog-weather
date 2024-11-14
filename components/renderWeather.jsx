@@ -79,7 +79,7 @@ export default function RenderWeather({ coord }) {
             <div className="lg:w-2/5 w-full flex-col mx-auto justify-center rounded-xl">
                 <div className=" bg-slate-800 py-4 px-4 text-center">
                     <p className="lg:text-xl text-md mb-2 uppercase">{weatherData.name}, {country}</p>
-                    <p className="lg:text-2xl text-lg">Hora: {timeHere.substring(11, 19)}<span className="lg:ml-40 ml-8"> Fecha: {timeHere.substring(0, 9)}</span></p>
+                    <p className="lg:text-2xl text-lg">Hora: {timeHere.substring(11, 20)}<span className="lg:ml-40 ml-8"> Fecha: {timeHere.substring(0, 10)}</span></p>
                 </div>
                 <div className="w-full relative">
                     {/* eslint-disable @next/next/no-img-element */}
@@ -104,8 +104,8 @@ export default function RenderWeather({ coord }) {
                     forecast.list.map(forecastData => (
                         <div key={forecastData.lenght} className="flex flex-row h-24 snap-start items-center border-b-2 border-gray-800">
                             <div className="w-36 text-center">
-                                <p className="text-sm">Fecha: {(unixToTime(forecastData.dt, weatherData.timezone)).substring(0, 9)}</p>
-                                <p className="lg:text-2xl text-xl ">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(11, 19)}</p>
+                                <p className="text-sm">Fecha: {(unixToTime(forecastData.dt, weatherData.timezone)).substring(0,10)}</p>
+                                <p className="lg:text-2xl text-xl ">{(unixToTime(forecastData.dt, weatherData.timezone)).substring(11, 20)}</p>
                             </div>
                             <div className="lg:-mt-2 mt-0">
                                 {/* eslint-disable @next/next/no-img-element */}
