@@ -34,7 +34,7 @@ export default function RenderWeather({ coord }) {
     //Tiempo en formato unix a hora y fecha standard
     const unixToTime = (unix, timezone) => {
         const time = new Date(((unix + 10800) + timezone) * 1000)
-        return time.toLocaleString('es')
+        return time.toLocaleString('en-GB')
     }
 
     useEffect(() => {
